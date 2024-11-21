@@ -1,0 +1,269 @@
+<div class="md:flex p-3.5">
+  <div
+    class="px-8 py-4 bg-gray-50 text-medium text-gray-500 dark:text-gray-400 dark:bg-gray-800 w-full relative shadow-md sm:rounded-lg ">
+    <h3 class="text-lg font-bold text-gray-900 dark:text-white"> Pay Order </h3>
+
+  </div>
+</div>
+
+<body class="bg-gray-900 text-white px-4 mb-4 w-full bg-white  relative shadow-md ">
+  <div class="max-w-7xl mx-auto p-6 bg-gray-800 rounded-lg shadow-lg ">
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
+      <div class="col-span-2">
+        <h1 class="text-2xl font-bold mb-2">Bar-SPA</h1>
+        <p class="mb-4"> Thank you for your purchase at Bar-SPA. Here is a summary of your invoice. If you would like to
+          make any changes to your order,
+          please use the buttons below.</p>
+        <p class="mb-4"> This invoice will be issued on {{ fechaHoraActual }}.</p>
+        <p></p>
+        <div class="flex space-x-4">
+          <button [routerLink]="['../add-orders']"
+            class="bbg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Add
+            Order</button>
+          <button 
+            class="bg-gray-600 text-white font-medium rounded-lg text-sm px-5 py-2.5 mb-2">Cancel</button>
+        </div>
+      </div>
+      <div
+        class="px-8 md:w-auto flex flex-col md:flex-row space-y-2 md:space-y-0 items-stretch md:items-center justify-end md:space-x-3 flex-shrink-0 ">
+        <button
+          class="  w-48 h-12 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+          type="button" data-drawer-target="drawer-right-example" data-drawer-show="drawer-right-example"
+          data-drawer-placement="right" aria-controls="drawer-right-example">
+          Show history orders
+          <span
+            class="inline-flex items-center justify-center w-3 h-3 p-3 ms-3 text-sm font-medium text-blue-800 bg-blue-100 rounded-full dark:bg-blue-900 dark:text-blue-300">{{NumOrders()}}</span>
+
+        </button>
+        <div id="drawer-right-example"
+          class=" fixed top-0 right-0 z-40 h-screen p-4 overflow-y-auto transition-transform translate-x-full bg-white w-80 dark:bg-gray-800"
+          tabindex="-1" aria-labelledby="drawer-right-label">
+          <h5 id="drawer-right-label"
+            class="inline-flex items-center mb-4 text-base font-semibold text-gray-500 dark:text-gray-400"><svg
+              class="w-4 h-4 me-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+              viewBox="0 0 20 20">
+              <path
+                d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z" />
+            </svg>Orders <span
+              class="inline-flex items-center justify-center w-3 h-3 p-3 ms-3 text-sm font-medium text-blue-800 bg-blue-100 rounded-full dark:bg-blue-900 dark:text-blue-300">{{NumOrders()}}</span>
+          </h5>
+
+          <button type="button" data-drawer-hide="drawer-right-example" aria-controls="drawer-right-example"
+            class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 absolute top-2.5 end-2.5 inline-flex items-center justify-center dark:hover:bg-gray-600 dark:hover:text-white">
+            <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+            </svg>
+            <span class="sr-only">Close menu</span>
+          </button>
+          <p class="mb-6 text-sm text-gray-500 dark:text-gray-400">Order<a
+              href="#" class="text-blue-600 underline font-medium dark:text-blue-500 hover:no-underline"></a> </p>
+
+          <div 
+            class="mt-4 p-4 rounded-lg  bg-gray-50 hover:bg-gray-100 dark:hover:bg-gray-600 dark:bg-gray-700">
+
+            <div class="flow-root">
+              <ul role="list" class="-my-6 divide-y divide-gray-200">
+                <li class="flex py-6">
+                  <div class="h-16 w-16 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
+                    <img src="{{peticionDirectaImgUrl}}{{product.image}}"
+                      alt="Salmon orange fabric pouch with match zipper, gray zipper pull, and adjustable hip belt."
+                      class="h-full w-full object-cover object-center">
+                  </div>
+
+                  <div class="ml-4 flex flex-1 flex-col">
+                    <div>
+                      <div class="flex justify-between text-base font-medium text-gray-900">
+                        <h3>
+                          <a href="#" class="text-blue-500">{{producto?.nombre}}</a>
+                        </h3>
+                        <p class="ml-4 text-white">₡{{producto?.precio}}</p>
+                      </div>
+                      <p class="mt-1 text-sm text-gray-500">{{getCategoryOfProduct(producto.idCategoria)}}</p>
+                    </div>
+                    <div class="flex flex-1 items-end justify-between text-sm">
+                     
+  
+                      <div class="flex">
+                        <button  type="button"
+                          class="font-medium text-indigo-600 hover:text-indigo-500">Remove</button>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+
+              </ul>
+            </div>
+
+          </div>
+
+        </div>
+
+
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+      <div class="bg-gray-700 p-4 rounded-lg">
+        <div class="flex flex-wrap justify-between m-4">
+          <h2 class="text-xl font-semibold mb-4">General Information</h2>
+          <div class="text-center ">
+            <button
+              class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+              type="button" data-drawer-target="drawer-left-example" data-drawer-show="drawer-left-example"
+              data-drawer-placement="left" aria-controls="drawer-left-example">
+              Choose client
+            </button>
+          </div>
+        </div>
+
+        <div id="drawer-left-example"
+          class="fixed top-0 left-0 z-40 h-screen p-4 overflow-y-auto transition-transform -translate-x-full bg-white w-80 dark:bg-gray-800"
+          tabindex="-1" aria-labelledby="drawer-left-label">
+          <h5 id="drawer-left-label"
+            class="inline-flex items-center mb-4 text-base font-semibold text-gray-500 dark:text-gray-400"><svg
+              class="w-4 h-4 me-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+              viewBox="0 0 20 20">
+              <path
+                d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z" />
+            </svg>Clients</h5>
+          <button type="button" data-drawer-hide="drawer-left-example" aria-controls="drawer-left-example"
+            class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 absolute top-2.5 end-2.5 inline-flex items-center justify-center dark:hover:bg-gray-600 dark:hover:text-white">
+            <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+            </svg>
+            <span class="sr-only">Close menu</span>
+          </button>
+          <form class="flex items-center ">
+            <label for="simple-search" class="sr-only">Search</label>
+            <div class="relative w-full">
+              <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                <svg aria-hidden="true" class="w-5 h-5 text-gray-500 dark:text-gray-400" fill="currentColor"
+                  viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd"
+                    d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
+                    clip-rule="evenodd" />
+                </svg>
+              </div>
+              <input type="text"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full pl-10 p-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                placeholder="Search" #filter >
+            </div>
+          </form>
+
+          <div *ngFor="let cliente of clientes; "
+            class="mt-4 px-2 py-4 rounded-lg  bg-gray-50 hover:bg-gray-100 dark:hover:bg-gray-600 dark:bg-gray-700">
+
+            <div class="flow-root">
+              <ul role="list" class="-my-6 divide-y divide-gray-200">
+                <li class="flex py-6">
+                  <div class="h-6 w-6 relativeflex-shrink-0 overflow-hidden ">
+                    <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 20">
+                      <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4H1m3 4H1m3 4H1m3 4H1m6.071.286a3.429 3.429 0 1 1 6.858 0M4 1h12a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1Zm9 6.5a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0Z"/>
+                  </svg>
+                  </div>
+                  <div class="ml-4 flex flex-1 flex-col">
+                    <div>
+                      <div class="flex justify-between text-base font-medium text-gray-900">
+                        <h3>
+                          <a href="#" class="text-blue-500">{{cliente.nombre}}</a>
+                        </h3>
+                      </div>
+                      <p class="mt-1 text-sm text-gray-300">{{cliente.correo}}</p>
+                    </div>
+                    <div class="flex flex-1 items-end justify-between text-sm">
+                      <p class="text-gray-300">{{cliente.telefono}}</p>
+
+                      <div class="flex mt-1 mr-3">
+                        <button type="button" class="font-medium text-blue-400 hover:text-indigo-500">Choose</button>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+
+              </ul>
+            </div>
+
+          </div>
+        </div>
+
+
+        <form #createForm="ngForm"  class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+          <div>
+            <label class="block mb-1">Phone</label>
+            <input id="telefono" name="telefono" #telefono="ngModel" [(ngModel)]="cliente.telefono" type="text"
+              class="w-full p-2 bg-gray-800 rounded border border-gray-600" placeholder="123-456-7890">
+          </div>
+          <div>
+            <label class="block mb-1">First Name</label>
+            <input id="nombre" name="nombre" #nombre="ngModel" [(ngModel)]="cliente.nombre" type="text"
+              class="w-full p-2 bg-gray-800 rounded border border-gray-600" placeholder="Israel">
+          </div>
+          <div>
+            <label class="block mb-1">Last Name</label>
+            <input id="apellido" name="apellido" #apellido="ngModel" [(ngModel)]="cliente.apellido" type="text"
+              class="w-full p-2 bg-gray-800 rounded border border-gray-600" placeholder="Centeno">
+          </div>
+          <div>
+            <label class="block mb-1">Address</label>
+            <input id="direccion" name="direccion" #direccion="ngModel" [(ngModel)]="cliente.direccion" type="text"
+              class="w-full p-2 bg-gray-800 rounded border border-gray-600" placeholder="Calle 11">
+          </div>
+
+          <div>
+            <label class="block mb-1">Email</label>
+            <input id="correo" name="correo" #correo="ngModel" [(ngModel)]="cliente.correo" type="email"
+              class="w-full p-2 bg-gray-800 rounded border border-gray-600"
+              placeholder="jose.centeno.ruiz@est.una.ac.cr">
+          </div>
+          <div class="mt-4">
+            <button type="submit"
+              class="bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Submit</button>
+          </div>
+        </form>
+
+      </div>
+      <div class="bg-gray-700 p-4 rounded-lg">
+        <h2 class="text-xl font-semibold mb-4">Info</h2>
+        <label class="block mb-1">Receipt info (optional)</label>
+        <textarea class="w-full p-2 bg-gray-800 rounded border border-gray-600"></textarea>
+      </div>
+    </div>
+
+  </div>
+</body>
+<div *ngIf="isDeleteModalOpen" tabindex="-1"
+  class="bg bg-black bg-opacity-20 sm:ml-58 fixed inset-0 z-60 overflow-y-auto flex items-center justify-center ">
+  <div class="relative p-4 w-full max-w-md max-h-full">
+    <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+      <button type="button" (click)="closeDeleteModal()"
+        class="absolute top-3 end-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
+        data-modal-hide="popup-modal">
+        <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+        </svg>
+        <span class="sr-only">Close modal</span>
+      </button>
+      <div class="p-4 md:p-5 text-center">
+        <svg class="mx-auto mb-4 text-gray-400 w-12 h-12 dark:text-gray-200" aria-hidden="true"
+          xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M10 11V6m0 8h.01M19 10a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+        </svg>
+        <h3 class="mb-5 text-lg font-normal text-gray-500 dark:text-gray-400">Are you sure you want to
+          delete
+          this product?</h3>
+        <button (click)="deleteOrder()" type="button"
+          class="text-white bg-red-600 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center">
+          Yes, I'm sure
+        </button>
+        <button (click)="closeDeleteModal()" type="button"
+          class="py-2.5 px-5 ms-3 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">No,
+          cancel</button>
+      </div>
+    </div>
+  </div>
+</div>
+

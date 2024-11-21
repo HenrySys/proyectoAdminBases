@@ -1,0 +1,38 @@
+<div class="md:flex p-3.5">
+  <div
+    class="px-8 py-4 bg-gray-50 text-medium text-gray-500 dark:text-gray-400 dark:bg-gray-800 w-full  relative shadow-md sm:rounded-lg">
+    <h3 class="text-lg font-bold text-gray-900 dark:text-white">Bookings</h3>
+
+  </div>
+</div>
+
+<div class=" grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-3 sm:gap-2">
+  <div *ngFor="let reserva of reservaLists" class="bg-gray-700 shadow-md rounded-lg p-4 flex flex-col w-full m-3">
+    <div>
+      <h2 class="text-center text-base font-bold mb-2 text-gray-200">Reserva # {{ reserva.id }}</h2>
+      <div class="flex justify-between mb-3">
+        <div>
+          <p class="text-base text-white">Mesa: {{ reserva.idMesa }}</p>
+          <p class="text-base text-white">Estado: <span class="text-green-500">{{ reserva.estado }}</span></p>
+        </div>
+        <div class="mt-1 sm:mt-0">
+          <p class="text-sm text-gray-300">Fecha: {{ reserva.fecha }}</p>
+          <p class="text-sm text-gray-300">Hora: {{ reserva.hora }}</p>
+        </div>
+      </div>
+    </div>
+    <div class="text-center justify-between">
+      <button (click)="delete(reserva.id)"
+        class="text-white bg-red-500 hover:bg-red-600 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-2 py-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 focus:outline-none dark:focus:ring-red-800"
+        type="button">
+        delete
+      </button>
+      <button
+        class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-1 py-2 m-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+        type="button">
+        To serve
+      </button>
+    </div>
+  </div>
+</div>
+

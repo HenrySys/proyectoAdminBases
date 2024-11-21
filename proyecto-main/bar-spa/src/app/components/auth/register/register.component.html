@@ -1,0 +1,70 @@
+<div class="home-image flex items-center justify-center">
+  <div class="  relative p-4 w-full max-w-md max-h-full">
+    <div class="p-4 md:p-5">
+      <form [formGroup]="userForm" (ngSubmit)="onSubmit()" class="p-4 md:p-5">
+        <div class="grid gap-4 mb-4 grid-cols-1">
+          <div formGroupName="usuario">
+            <div class="col-span-2">
+              <label for="rol" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">User
+                name</label>
+              <input type="text" id="username" formControlName="username"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                placeholder="user name" required="">
+            </div>
+            <div class="col-span-2 sm:col-span-1">
+              <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your
+                email</label>
+              <input type="email" id="email" formControlName="email"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+                placeholder="name@company.com" required />
+            </div>
+            <div class="col-span-2 sm:col-span-1">
+              <label for="password"
+                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Password</label>
+              <input type="password" formControlName="password_hash"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                placeholder="Password" required="">
+            </div>
+          </div>
+          <div formGroupName="cliente">
+            <div class="col-span-2">
+              <label for="rol" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                Name</label>
+              <input type="text" id="nombre" formControlName="nombre"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                placeholder="Name" required="">
+            </div>
+            <div class="col-span-2 sm:col-span-1">
+              <label for="apellido" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Last
+                name</label>
+              <input type="text" id="apellido" formControlName="apellido"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+                placeholder="Last name" required />
+            </div>
+            <div class="col-span-2 sm:col-span-1">
+              <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Address</label>
+              <input type="text" id="direccion" formControlName="direccion"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                placeholder="address" required="">
+            </div>
+            <div class="col-span-2 sm:col-span-1">
+              <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Phone</label>
+              <input type="number" id="telefono" formControlName="telefono"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                placeholder="phone" required="">
+            </div>
+          </div>
+        </div>
+        <button type="submit" [disabled]="userForm.invalid"
+          class="text-white inline-flex items-center bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+          <svg class="me-1 -ms-1 w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd"
+              d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z"
+              clip-rule="evenodd"></path>
+          </svg>
+          Add new user
+        </button>
+      </form>
+    </div>
+  </div>
+</div>

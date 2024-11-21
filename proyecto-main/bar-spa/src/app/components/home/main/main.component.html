@@ -1,0 +1,50 @@
+<body>
+  <section class="home-image">
+    <div class="container mx-auto flex px-5 py-24 md:flex-row flex-col items-end">
+      <div
+        class="scale-up-top-left lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center">
+        <h1 class=" title1 title-font text-center sm:text-5xl text-xl mb-4 font-medium text-white">
+
+          Welcome to TAB~BAR!
+          <br class="hidden lg:inline-block">>Where every sip and bite tells a story!
+        </h1>
+      </div>
+      <div class="flex justify-center aling-item-center">
+        <button (click)="store()"
+          class="button1 text-white bg-red-500 border-0 py-2 px-6 focus:outline-none rounded text-lg">Reservar</button>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="text-gray-600 body-font">
+    <div class="container px-5 py-24 mx-auto">
+      <div class="flex flex-wrap w-full mb-20">
+        <div class="lg:w-1/2 w-full mb-6 lg:mb-0">
+          <h1 class="sm:text-3xl text-2xl font-medium title-font mb-2 text-gray-900">What we offer</h1>
+          <div class="h-1 w-20 bg-indigo-500 rounded"></div>
+        </div>
+        <p class="lg:w-1/2 w-full leading-relaxed text-gray-500"> Experience a variety of exquisite dishes,
+           handcrafted cocktails, and an ambiance designed for unforgettable moments.
+          At TAB~BAR, we cater to your every desire with the perfect blend of taste and luxury.</p>
+      </div>
+      <div class="flex flex-wrap -m-4">
+        <div *ngFor="let producto of productoLists" class="xl:w-1/4 md:w-1/2 p-4">
+          <div class="bg-gray-100 p-6 rounded-lg flex flex-col items-center">
+            <img class="h-40 rounded w-full object-cover object-center mb-6"
+              src="{{peticionDirectaImgUrl}}{{producto.imgen}}" alt="content">
+            <h3 class="tracking-widest text-indigo-500 text-xs font-medium title-font mb-2">
+              {{getCategoryOfService(producto.idCategoria)}}</h3>
+            <h2 class="text-lg text-gray-900 font-medium title-font mb-4">{{producto.nombre}}</h2>
+            <p class="leading-relaxed text-base">{{producto.descripcion}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+
+
+  <script src="../path/to/flowbite/dist/datepicker.js"></script>
